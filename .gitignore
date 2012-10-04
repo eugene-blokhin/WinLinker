@@ -1,0 +1,15 @@
+*.suo
+bin
+obj
+_ReSharper.*
+*.ReSharper.user
+*.db
+*.db.bak
+.DS_Store
+*~
+app.cfg
+*.csproj.user
+Tools
+TestResults/*
+*.DotSettings.user
+

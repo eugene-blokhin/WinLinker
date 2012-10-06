@@ -8,8 +8,8 @@
     <ProjectGuid>{B8C11EA6-8FB9-44CD-BE44-834E9639B55F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SyLinkWizard</RootNamespace>
-    <AssemblyName>SyLinkWizard</AssemblyName>
+    <RootNamespace>WinLinker</RootNamespace>
+    <AssemblyName>WinLinkerWizard</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -55,20 +55,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="WizardSteps\LinkTypeWizardStep.cs" />
+    <Compile Include="WizardSteps\LinkTypePage.xaml.cs">
+      <DependentUpon>LinkTypePage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="WizardBase\WizardWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AeroGlassHelper.cs" />
+    <Compile Include="Controls\AeroGlassHelper.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FrameExtender.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="WizardBase\ButtonDescriptor.cs" />
+    <Compile Include="Controls\FrameExtender.cs" />
+    <Compile Include="WizardBase\WizardStep.cs" />
+    <Compile Include="WizardSteps\LinkDescriptor.cs" />
+    <Compile Include="WizardBase\NextStepEventArgs.cs" />
+    <Compile Include="WizardBase\WizardWindow.xaml.cs">
+      <DependentUpon>WizardWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WizardSteps\LinkTypePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,6 +105,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WizardBase\Resources\windows.8.back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

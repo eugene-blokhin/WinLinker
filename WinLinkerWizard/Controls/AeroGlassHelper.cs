@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 
-namespace WinLinker
+namespace WinLinker.Controls
 {
     static class AeroGlassHelper
     {

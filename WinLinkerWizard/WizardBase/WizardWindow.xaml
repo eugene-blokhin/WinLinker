@@ -1,0 +1,64 @@
+﻿<Window x:Class="WinLinker.WizardBase.WizardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:WinLinker="clr-namespace:WinLinker" xmlns:Controls="clr-namespace:WinLinker.Controls" Height="450" Width="615" ResizeMode="NoResize"
+        Background="{x:Static SystemColors.ControlBrush}"
+        Controls:FrameExtender.FrameExpanse="0,36,0,0" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        
+        <!--Title-->
+        <Rectangle Grid.Row="0" MouseDown="HandleClientTitleMouseDown" Fill="Transparent"/>
+        <Button Name="backBtn" Width="36" HorizontalAlignment="Left" Click="HandleBack">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="Transparent">
+                                    <Grid Height="19" Width="19">
+                                        <Ellipse Fill="{TemplateBinding Background}" Opacity="{TemplateBinding Opacity}"/>
+                                        <Image Source="Resources/windows.8.back.png"/>
+                                    </Grid>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Background" Value="{x:Static SystemColors.HighlightBrush}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        
+        <!--Content-->
+        <Frame Name="contentFrame" Background="{x:Static SystemColors.ControlBrush}" Grid.Row="1" Focusable="False"/>        
+        
+        <!--Buttons-->
+        <Border Grid.Row="2"  Background="{x:Static SystemColors.ControlLightBrush}" BorderBrush="{x:Static SystemColors.ActiveBorderBrush}" BorderThickness="0,1,0,0"/>
+        <StackPanel Name="buttonBar" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="4.5,0">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="4.5"/>
+                    <Setter Property="Height" Value="21"/>
+                    <Setter Property="Width" Value="66"/>
+                </Style>
+            </StackPanel.Resources>
+        </StackPanel>
+    </Grid>
+</Window>

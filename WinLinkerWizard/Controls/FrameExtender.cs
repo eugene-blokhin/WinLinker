@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace WinLinker
+namespace WinLinker.Controls
 {
     public class FrameExtender : DependencyObject
     {
